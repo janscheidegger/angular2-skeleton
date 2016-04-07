@@ -1,24 +1,24 @@
 import {Component} from 'angular2/core'
 import {NameComponent} from './name-component'
+import {FriendService} from './friends'
 
 @Component({
     selector: 'jazoon-app',
     template: `
         <h1>hello {{name}}</h1>
-        <input type="text" [(ngModel)]="myName">
-        <name-component  [(name)]="myName"></name-component>
+        <ul> 
+            <li *ngFor="#friend of friends">{{friend}}</li>
+        </ul>
     `,
-    directives: [NameComponent]
+    directives: [NameComponent],
+    providers: [FriendService]
 })
 export class App {
     myName:string;
     isDisabled: boolean = false;
     foos: string[];
-    constructor() {
-        this.foos = ['rob', 'sam', 'carry'];
-        this.myName = 'Jan'
-    }
-    nameChanged(name) {
-        this.myName = name;
+    friends: string[];
+    constructor(friendsService: FriendService) {
+        this.friends = friendsService.list;
     }
 }
