@@ -7,7 +7,7 @@ import {FriendService} from './friends'
     template: `
         <h1>hello {{name}}</h1>
         <ul> 
-            <li *ngFor="#friend of friends">{{friend}}</li>
+            <li *ngFor="#friend of friendsService.list">{{friend}}</li>
         </ul>
     `,
     directives: [NameComponent],
@@ -18,7 +18,6 @@ export class App {
     isDisabled: boolean = false;
     foos: string[];
     friends: string[];
-    constructor(friendsService: FriendService) {
-        this.friends = friendsService.list;
+    constructor(public friendsService: FriendService) {
     }
 }
