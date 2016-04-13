@@ -26,7 +26,9 @@ lite-server
 ## Services
  
 Angular 1 => One Injector for One app
+
 Angular 2 => Looks at parent for Injectors, but has own Injectors (Services can get initialized twice if you provide the Injector again in "SubClass")
+
 Global Services can be defined in bootstraps second argument in main.ts. => You don't need to use providers in components
 
 ```javascript
