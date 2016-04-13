@@ -6,6 +6,7 @@ lite-server
 
 
 ## Attributes and Events
+```javascript
 [something] property
 (something) event
 
@@ -20,13 +21,15 @@ lite-server
  
  @Component
  directives
- 
- ## Services
+``` 
+
+## Services
  
 Angular 1 => One Injector for One app
 Angular 2 => Looks at parent for Injectors, but has own Injectors (Services can get initialized twice if you provide the Injector again in "SubClass")
 Global Services can be defined in bootstraps second argument in main.ts. => You don't need to use providers in components
 
+```javascript
  @Component
  providers
  
@@ -38,13 +41,5 @@ Global Services can be defined in bootstraps second argument in main.ts. => You 
  @Injectable() allow to inject Services into Services (from angular2/core)
  
  bootstrap(app, [FriendService, provide(FriendsConfig, {useValue/useClass/useFactory})]); to inject custom
+``` 
  
- for each class
- 
-  ngOnInit() {
-    console.log("asdfasf");
- }
- ngOnChangeDetection
- ngOnDestroy
-
-
